@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Upfiles";
+}
+
+<h2>Upfiles</h2>
+<form action="@Url.Action("UpSuccess")" enctype="multipart/form-data" method="post">
+    <input id="pic" name="pic" type="file" />
+    <input type="submit" value="提交" />
+</form>

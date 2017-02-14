@@ -1,0 +1,57 @@
+﻿@model dashboard.Models.LoginModel
+
+@{
+    ViewBag.Title = "登录";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../../Content/login.css" rel='stylesheet' type='text/css' />
+    <link href="../../Content/bootstrap.css" rel='stylesheet' type='text/css' />
+    <script src="../../Scripts/jquery-1.8.2.js"></script>
+    <script src="../../Scripts/bootstrap.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../JSClasses/Login/lgMode.js"></script>
+    <script src="../../JSClasses/Login/copyright.js"></script>
+    <script src="../../JSClasses/Login/focus.js"></script>
+    <script src="../../JSClasses/Login/Login.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <!--公司logo-->
+    <div class="logo">
+        <img src="../../Images/cip-hpe.png" />
+    </div>
+    <!--登录部分-->
+    <div class="login">
+        <div class="login-top">
+            <!--系统名称-->
+            <h1>Dashboard</h1>
+            <!--登录表单-->
+            <form class="lgForm" autocomplete="on">
+                <!--用户名-->
+                <input type="text" placeholder="Username" id="name" onfocus="fs(this.id);" onblur="bl(this.id)" required="required">
+                <!--密码-->
+                <input type="password" placeholder="Password" id="psw" onfocus="fs(this.id);" onblur="bl(this.id)" autocomplete="off" required="required">
+            </form>
+            <div class="remember">
+                <!--是否记住密码-->
+                <div><input type="checkbox" class="ckb" /> </div>
+                <font class="ft">remember me</font>
+                <!--登录按钮-->
+                <input type="submit" value="Login" onclick="login.click();">
+            </div>
+        </div>
+        <!--忘记密码-->
+        <div class="login-bottom">
+            <h3>forgot Password &nbsp;<a href="/Home/Forget">Click</a>&nbsp Here</h3>
+        </div>
+    </div>
+    <!--版权信息-->
+    <div class="copyright">
+        <p>Copyright &copy; 2016.<font class="company"></font> All rights reserved.</p>
+    </div>
+</body>
+</html>

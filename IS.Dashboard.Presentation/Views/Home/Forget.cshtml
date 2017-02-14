@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "forget";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../../Content/forget.css" rel='stylesheet' type='text/css' />
+    <link href="../../Content/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="../../Content/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <script src="../../Scripts/jquery-1.8.2.js"></script>
+    <script src="../../Scripts/js/copyright.js"></script>
+    <script src="../../Scripts/js/focus.js"></script>
+    <title>Forget</title>
+</head>
+<body>
+    <div class="fg-head">
+        <font class="pgName">Dashboard</font>
+        <div class="fg-logo">
+            <img src="../../Images/cip-hpe.png" align="middle" />
+        </div>
+    </div>
+
+    <div class="fg-nav">
+        <font class="findpsw">find password</font>
+        <font class="rspsw">reset password</font>
+    </div>
+    <div class="email">
+        <div class="reminder">
+            <font>Please enter your registered email.</font>
+        </div>
+        <div class="fg-form">
+            <form>
+                <div class="efont">
+                    <font>email:</font>
+                    <input type="email" id="email" onfocus="fs(this.id);" onblur="pswbl(this.id)" />
+                </div>
+                <div class="ebutton">
+                    <input type="submit" value="submit" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--版权信息-->
+    <div class="fg-copyright">
+        <p>Copyright &copy; 2016.<font class="company"></font> All rights reserved.</p>
+    </div>
+</body>
+</html>
+

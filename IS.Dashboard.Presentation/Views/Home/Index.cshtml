@@ -1,0 +1,286 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../../Content/index.css" rel='stylesheet' type='text/css' />
+    <link href="../../Content/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="../../Content/font-awesome.min.css" rel='stylesheet' type='text/css' />
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="../../Scripts/knockout-2.2.0.js"></script>
+    <script src="../../JSClasses/Home/navOperate.js"></script>
+    <script src="../../JSClasses/Home/Home.js"></script>
+    <title>Index</title>
+</head>
+<body>
+    <!--名称+logo-->
+    <div class="fg-head">
+        <font class="pgName">Dashboard</font>
+        <div class="fg-logo">
+            <img src="../../Images/cip-hpe.png" align="middle" />
+        </div>
+    </div>
+
+    <!--user information-->
+    <div class="fg-nav">
+        <ul class="nav">
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <span class="glyphicon glyphicon-user"></span>
+                    <span id="username">Lijun Liu </span><b class="caret"></b>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        <a><span>Department</span></a>
+                    </li>
+                    <li>
+                        <a><span>Role</span></a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="/Home/rspsw"><span class="glyphicon glyphicon-lock"></span> Change Password</a>
+                    </li>
+                    <li>
+                        <a href="/Home/login"><span class="glyphicon glyphicon-off"></span> Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="index-main">
+        <!--默认导航栏-->
+        <div class="default-index-nav">
+            <div class="nav-user" onclick="stretch();">
+                <i class="icon-double-angle-right i-nav"></i>
+            </div>
+
+            <hr />
+
+            <div class="nav-content">
+                <!--Home-->
+                <div class="content-icon" id="default-home" onmouseover="over(id);" onmouseout="out(id)">
+                    <span class="glyphicon glyphicon-home"></span>
+                    <div class="default-ul default-home">
+                        <ul>
+                            <li><a href="#">Upload data</a></li>
+                            <li><a href="#">Maintain System data</a></li>
+                            <li><a href="#">ROE Rules</a></li>
+                            <li><a href="#">Upload Tip</a></li>
+                            <li><a href="#">Update Reports</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Bulk Upload-->
+                <div class="content-icon" id="default-bkupload" onmouseover="over(id);" onmouseout="out(id);">
+                    <span class="glyphicon glyphicon-upload"></span>
+                    <div class="default-ul default-bkupload">
+                        <ul>
+                            <li><a href="#">Upload data</a></li>
+                            <li><a href="#">Maintain System data</a></li>
+                            <li><a href="#">ROE Rules</a></li>
+                            <li><a href="#">Upload Tip</a></li>
+                            <li><a href="#">Update Reports</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Submit Subscription-->
+                <div class="content-icon" id="default-sbscript" onmouseover="over(id);" onmouseout="out(id);">
+                    <span class="glyphicon glyphicon-folder-close"></span>
+                    <div class="default-ul default-sbscript">
+                        <ul>
+                            <li><a href="#">Upload data</a></li>
+                            <li><a href="#">Maintain System data</a></li>
+                            <li><a href="#">ROE Rules</a></li>
+                            <li><a href="#">Upload Tip</a></li>
+                            <li><a href="#">Update Reports</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Fulfill Data-->
+                <div class="content-icon" id="default-fuldata" onmouseover="over(id);" onmouseout="out(id);">
+                    <span class="glyphicon glyphicon-dashboard"></span>
+                    <div class="default-ul default-fuldata">
+                        <ul>
+                            <li><a href="#">Upload data</a></li>
+                            <li><a href="#">Maintain System data</a></li>
+                            <li><a href="#">ROE Rules</a></li>
+                            <li><a href="#">Upload Tip</a></li>
+                            <li><a href="#">Update Reports</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Domain Administration-->
+                <div class="content-icon" id="default-dmadmini" onmouseover="over(id);" onmouseout="out(id);">
+                    <span class="glyphicon glyphicon-list-alt"></span>
+                    <div class="default-ul default-dmadmini">
+                        <ul>
+                            <li><a href="#">Upload data</a></li>
+                            <li><a href="#">Maintain System data</a></li>
+                            <li><a href="#">ROE Rules</a></li>
+                            <li><a href="#">Upload Tip</a></li>
+                            <li><a href="#">Update Reports</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--展开后导航栏 -->
+        <div class="index-nav">
+            <div class="nav-user" onclick="indent();">
+                <i class="icon-double-angle-left i-nav"></i>
+            </div>
+
+            <hr />
+
+            <div class="nav-content">
+                <!--Home-->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary nav-button" id="home" onclick="navshow(id);" value="0">
+                        <span class="glyphicon glyphicon-home nav-icon"></span><span class="nav-font">Home</span> <span class="caret btn-caret"></span>
+                    </button>
+                </div>
+                <div class="home-content home">
+                    <ul>
+                        <li><a href="#">Upload data</a></li>
+                        <li><a href="#">Maintain System data</a></li>
+                        <li><a href="#">ROE Rules</a></li>
+                        <li><a href="#">Upload Tip</a></li>
+                        <li><a href="#">Update Reports</a></li>
+                    </ul>
+                </div>
+
+                <!--Bulk Upload-->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary nav-button" id="bkupload" onclick="navshow(id);" value="0">
+                        <span class="glyphicon glyphicon-upload nav-icon"></span><span class="nav-font">Bulk Upload</span> <span class="caret btn-caret"></span>
+                    </button>
+                </div>
+                <div class="home-content bkupload">
+                    <ul>
+                        <li><a href="#">Upload data</a></li>
+                        <li><a href="#">Maintain System data</a></li>
+                        <li><a href="#">ROE Rules</a></li>
+                        <li><a href="#">Upload Tip</a></li>
+                        <li><a href="#">Update Reports</a></li>
+                    </ul>
+                </div>
+
+                <!--Submit Subscription-->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary nav-button" id="sbscript" onclick="navshow(id);" value="0">
+                        <span class="glyphicon glyphicon-folder-close nav-icon"></span><span class="nav-font">Submit Subscription</span> <span class="caret btn-caret"></span>
+                    </button>
+                </div>
+                <div class="home-content sbscript">
+                    <ul>
+                        <li><a href="#">Upload data</a></li>
+                        <li><a href="#">Maintain System data</a></li>
+                        <li><a href="#">ROE Rules</a></li>
+                        <li><a href="#">Upload Tip</a></li>
+                        <li><a href="#">Update Reports</a></li>
+                    </ul>
+                </div>
+
+                <!--Fulfill Data-->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary nav-button" id="fuldata" onclick="navshow(id);" value="0">
+                        <span class="glyphicon glyphicon-dashboard nav-icon"></span><span class="nav-font">Fulfill Data</span> <span class="caret btn-caret"></span>
+                    </button>
+                </div>
+                <div class="home-content fuldata">
+                    <ul>
+                        <li><a href="#">Upload data</a></li>
+                        <li><a href="#">Maintain System data</a></li>
+                        <li><a href="#">ROE Rules</a></li>
+                        <li><a href="#">Upload Tip</a></li>
+                        <li><a href="#">Update Reports</a></li>
+                    </ul>
+                </div>
+
+                <!--Domain Administration-->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary nav-button" id="dmadmini" onclick="navshow(id);" value="0">
+                        <span class="glyphicon glyphicon-list-alt nav-icon"></span><span class="nav-font">Domain Administration</span> <span class="caret btn-caret"></span>
+                    </button>
+                </div>
+                <div class="home-content dmadmini">
+                    <ul>
+                        <li><a href="#">Upload data</a></li>
+                        <li><a href="#">Maintain System data</a></li>
+                        <li><a href="#">ROE Rules</a></li>
+                        <li><a href="#">Upload Tip</a></li>
+                        <li><a href="#">Update Reports</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="default-index-content" id="index-content">
+            <div class="content-nav">
+                <ol class="breadcrumb" id="navigation">
+                    <li data-bind="click: clickHome">Home</li>
+                    <li data-bind="click: clickBulk">Bulk Upload</li>
+                    <li data-bind="if: showWaag()">WAAG Confidential</li>
+                </ol>
+            </div>
+            <hr class="content-hr" />
+            <!-- ko if: showHome()-->
+            <div class="navblock uniform Home" id="Home">
+                <a data-bind="click: clickBulk">
+                    Bulk Upload
+                    <div></div>
+                    <span class="glyphicon glyphicon-upload"></span>
+                </a>
+                <a>
+                    Submit Subscription
+                    <div></div>
+                    <span class="glyphicon glyphicon-folder-close"></span>
+                </a>
+            </div>
+            <!--/ko-->
+            <!-- ko if: showBulk()-->
+            <div class="navdetail uniform BulkUpload" id="BulkUpload">
+                <table>
+                    <tbody>
+                        <tr><th>Table Name</th><th>Upload Time</th><th>Operation</th></tr>
+                        <tr><td><a data-bind="click: clickWaag">WAAG Confidential</a></td><td>2016-05-02 14:53</td><td>kamye.pemberton@hpe.com</td></tr>
+                        <tr><td><a data-bind="click: clickWaag">COMPASS CATW</a></td><td>2016-04-29 09:57</td><td>kamye.pemberton@hpe.com</td></tr>
+                        <tr><td><a data-bind="click: clickWaag">LABOR BOOKING</a></td><td>2016-04-06 08:08</td><td>kamye.pemberton@hpe.com</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--/ko-->
+            <!-- ko if: showWaag()-->
+            <div class="uploadblock uniform WAAGConfidential COMPASSCATW LABORBOOKING">
+                <div class="fileblock"></div>
+                <div class="submitForm">
+                    <form action="@Url.Action("UpSuccess")" enctype="multipart/form-data" method="post">
+                        <font>Select Data File(s):</font>
+                        <input type="file" value="选择文件" id="pic" name="pic" />
+                        <input type="button" value="Load Data" />
+                        <input type="submit" value="Submit" /> 
+                    </form>
+                </div>
+            </div>
+            <!--/ko-->
+
+        </div>
+    </div>
+
+<script>ko.applyBindings(viewModel);</script>
+</body>
+</html>

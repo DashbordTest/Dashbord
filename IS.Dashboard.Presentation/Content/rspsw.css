@@ -1,0 +1,50 @@
+﻿.findpsw{
+    background-color: #00CC99;
+}
+.rspsw{
+    background-color: #009999;
+}
+.fg-form{
+    margin-top:8%;
+}
+.newpsw{
+    margin-top:5%;
+    text-align:right;
+}
+.cfpsw{
+    margin-top:2%;
+    text-align:right;
+}
+.fg-form form div{
+    text-align:right;
+}
+.newpsw font,.cfpsw font{
+    color:#00CC99;
+    font-size:1.5vw;
+}
+/*.cfpsw font{
+    margin-left:-8.5%;
+}*/
+
+input[type="password"] {
+  outline: none;
+  font-size: 0.8vw;
+  font-weight: 500;
+  color: #818181;
+  border: 1px solid #c8c8c8;
+  border-radius:3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  width: 25%;
+  padding: 1% 1%;
+  -webkit-appearance: none;
+  box-sizing:border-box;
+  -webkit-border-box-sizing:border-box;
+  -moz-border-box-sizing: border-box;
+  -o-border-box-sizing: border-box;
+  margin-right:30%;
+}
+input[type="submit"] {
+    margin-right:35%;
+}
